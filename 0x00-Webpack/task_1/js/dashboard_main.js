@@ -12,11 +12,9 @@ let count = 0;
 
 function updateCounter() {
     count++;
-    $('#count').text(`${count} clicks on the button`);
-}
+    $('#count').html(`${count} clicks on the button`);
+};
 
-// Debounce the function to prevent excessive triggering
-const debouncedUpdateCounter = _.debounce(updateCounter, 500);
 
 // Bind the debounced function to the button click
-$('button').on('click', debouncedUpdateCounter);
+$('button').on('click', _.debounce(updateCounter, 500));
